@@ -155,11 +155,11 @@ class Tree {
         let content = ""
         for (let i = 0; i < this.nodes.length; i++) {
             if (this.nodes[i].left()) {
-                content += `${this.nodes[i].values.uuid}[${this.nodes[i].values.key}] --> ${this.nodes[i].left().values.uuid
+                content += `${this.nodes[i].values.uuid}[${this.nodes[i].values.key}]--  0  ---${this.nodes[i].left().values.uuid
                     }[${this.nodes[i].left().values.key}]\n`
             }
             if (this.nodes[i].right()) {
-                content += `${this.nodes[i].values.uuid}[${this.nodes[i].values.key}] --> ${this.nodes[i].right().values.uuid
+                content += `${this.nodes[i].values.uuid}[${this.nodes[i].values.key}]--  1  ---${this.nodes[i].right().values.uuid
                     }[${this.nodes[i].right().values.key}]\n`
             } else {
                 // content += "no children for " + this.nodes[i].values.key + "\n"
