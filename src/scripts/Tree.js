@@ -1,5 +1,5 @@
 
-const Node = require('./Node.js')
+import Node from "./Node"
 const { v4: uuidv4 } = require('uuid');
 
 class Tree {
