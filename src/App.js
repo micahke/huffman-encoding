@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import Navbar from './components/navbar';
 import Tree from './scripts/Tree';
-const { createDistribution, formatBits } = require('./scripts/helpers')
+import { createDistribution, formatBits } from './scripts/helpers';
 const mermaid = require('mermaid');
 
 function App() {
