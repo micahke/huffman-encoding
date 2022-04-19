@@ -15,11 +15,13 @@ function App() {
     const [type, setType] = useState(0)
 
     const generateTree = () => {
-        setRawDist(createDistribution(message))
-        let tree = new Tree(createDistribution(message))
-        setTreeData(tree.generateMarkdown());
-        setBitData(tree.encode(message))
-        console.log(tree.encode(message))
+        if (message.length > 1) {
+            setRawDist(createDistribution(message))
+            let tree = new Tree(createDistribution(message))
+            setTreeData(tree.generateMarkdown());
+            setBitData(tree.encode(message))
+            console.log(tree.encode(message))
+        }
     }
 
     const resetFrame = () => {
