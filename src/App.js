@@ -16,11 +16,13 @@ function App() {
 
     const generateTree = () => {
         if (message.length > 1) {
-            setRawDist(createDistribution(message))
-            let tree = new Tree(createDistribution(message))
+            let newMessage = message.replace(/(\r\n|\n|\r)/gm, "");
+            newMessage = newMessage.replace("\"", "")
+            setRawDist(createDistribution(newMessage))
+            let tree = new Tree(createDistribution(newMessage))
             setTreeData(tree.generateMarkdown());
-            setBitData(tree.encode(message))
-            console.log(tree.encode(message))
+            setBitData(tree.encode(newMessage))
+            console.log(tree.encode(newMessage))
         }
     }
 
