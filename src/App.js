@@ -65,20 +65,40 @@ function App() {
 function ViewBits(props) {
 
     const [efficiency, setEfficiency] = useState(0)
+    const [data, setData] = useState()
 
     const changeMenu = () => {
         props.changeMenu(0)
     }
 
+    const removeDuplicates = (arr) => {
+        let added = []
+        let data = []
+        for (let i = 0; i < arr.length; i++) {
+            if (!added.includes(arr[i].character)) {
+                added.push(arr[i].character)
+                data.push(arr[i])
+            }
+        }
+        return data
+    }
+
     useEffect(() => {
         let totalBits = 0
         let compressed = 0
+        let added = []
+        let finalData = []
         for (let i = 0; i < props.dist.length; i++) {
+            if (!added.includes(props.dist[i].character)) {
+                added.push(props.dist[i].character)
+                finalData.push(props.dist[i])
+            }
             totalBits += 8
             compressed += props.dist[i].bits.length
         }
         let efficiency = Math.round((1 - (compressed / totalBits)) * 100)
         setEfficiency(efficiency)
+        setData(finalData)
     }, [])
 
     return (
@@ -88,13 +108,15 @@ function ViewBits(props) {
                 <h5 onClick={changeMenu}>View Distribution</h5>
             </div>
             <span className='eff'>{efficiency}% efficiency improvement</span>
-            {
-                Object.keys(props.dist).map((item, index) => (
+            {data ?
+                Object.keys(data).map((item, index) => (
                     <div className='cell'>
-                        <p key={index}>{props.dist[index].character}:{"\t"}</p>
-                        <p>{formatBits(props.dist[index].bits)}</p>
+                        <p key={index}>{data[index].character}:{"\t"}</p>
+                        <p>{formatBits(data[index].bits)}</p>
                     </div>
                 ))
+                :
+                <></>
             }
         </div >
     )
