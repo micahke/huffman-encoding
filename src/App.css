@@ -149,3 +149,23 @@ h5:hover {
     padding: 3px 5px;
     margin: 0 auto;
 }
+
+.demo-info {
+    color: white;
+}
+
+.logo-name {
+    display: flex;
+    align-items: center;
+}
+
+.git-light {
+    height: 30px;
+    margin-right: 25px;
+    transition-duration: 0.2s;
+}
+
+.git-light:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
