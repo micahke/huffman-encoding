@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import './App.css';
 import Navbar from './components/navbar';
-import { createDistribution, formatBits } from './scripts/helpers';
 import Tree from './scripts/Tree';
+const { createDistribution, formatBits } = require('./scripts/helpers')
 const mermaid = require('mermaid');
 
 function App() {
