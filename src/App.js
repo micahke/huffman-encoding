@@ -48,7 +48,7 @@ function App() {
                     }
                     {treeData ?
                         <div className='chartview'>
-                            <h3>Encoding Chart:</h3>
+                            <h3>Encoding Tree:</h3>
                             <Mermaid
                                 chart={treeData}
                             />
